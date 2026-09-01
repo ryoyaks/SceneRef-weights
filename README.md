@@ -1,22 +1,22 @@
-# SyncRig-weights
+# Transpoze-weights
 
-Public mirror of model weights for [SyncRig](https://github.com/ryoyaks/SyncRig).
+Public mirror of model weights for [Transpoze](https://github.com/ryoyaks/Transpoze).
 
 Weights are distributed as GitHub Release assets so users can install
-SyncRig providers without HuggingFace accounts, tokens, or gated-repo
+Transpoze providers without HuggingFace accounts, tokens, or gated-repo
 acceptance flows. Each release tag corresponds to one provider's weight
-set; the SyncRig engine resolves the right release at install / first-run.
+set; the Transpoze engine resolves the right release at install / first-run.
 
 ## Releases
 
 | Tag | Provider | Upstream | License |
 |---|---|---|---|
-| `sam3d-v1.0` | `sam3d` (SyncRig in-tree) | [facebook/sam-3d-body-dinov3](https://huggingface.co/facebook/sam-3d-body-dinov3) + [-vith](https://huggingface.co/facebook/sam-3d-body-vith) | Meta SAM License (redistribution permitted with attribution + LICENSE pass-through) |
+| `sam3d-v1.0` | `sam3d` (Transpoze in-tree) | [facebook/sam-3d-body-dinov3](https://huggingface.co/facebook/sam-3d-body-dinov3) + [-vith](https://huggingface.co/facebook/sam-3d-body-vith) | Meta SAM License (redistribution permitted with attribution + LICENSE pass-through) |
 
 ## How weights are fetched
 
-`syncrig_engine.providers.sam3d_provider._download_gh_release()` streams
-each asset to the local cache at `<SyncRig>/models/sam3d/<variant>/`,
+`transpoze_engine.providers.sam3d_provider._download_gh_release()` streams
+each asset to the local cache at `<Transpoze>/models/sam3d/<variant>/`,
 matching the on-disk layout the upstream loader expects.
 
 If the GH mirror is unreachable, the engine falls back to HuggingFace
