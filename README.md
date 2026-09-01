@@ -1,33 +1,39 @@
 # Transpoze-weights
 
-Public mirror of model weights for [Transpoze](https://github.com/ryoyaks/Transpoze).
+Model weights for **Transpoze**, mirrored as GitHub Release assets.
 
-Weights are distributed as GitHub Release assets so users can install
-Transpoze providers without HuggingFace accounts, tokens, or gated-repo
-acceptance flows. Each release tag corresponds to one provider's weight
-set; the Transpoze engine resolves the right release at install / first-run.
+This repo holds no code. It exists so that a first run of Transpoze can
+fetch its weights with a plain HTTP GET — no Hugging Face account, no
+token, and no gated-repo acceptance flow standing between someone and a
+working install.
+
+Transpoze itself is a private repo, so there is no link to follow here.
+If you came looking for the product rather than its weights, this is the
+wrong place.
 
 ## Releases
 
 | Tag | Provider | Upstream | License |
 |---|---|---|---|
-| `sam3d-v1.0` | `sam3d` (Transpoze in-tree) | [facebook/sam-3d-body-dinov3](https://huggingface.co/facebook/sam-3d-body-dinov3) + [-vith](https://huggingface.co/facebook/sam-3d-body-vith) | Meta SAM License (redistribution permitted with attribution + LICENSE pass-through) |
+| `sam3d-v1.0` | `sam3d` — the default provider | [facebook/sam-3d-body-dinov3](https://huggingface.co/facebook/sam-3d-body-dinov3) + [-vith](https://huggingface.co/facebook/sam-3d-body-vith) | Meta SAM License |
 
-## How weights are fetched
+## How the engine fetches them
 
 `transpoze_engine.providers.sam3d_provider._download_gh_release()` streams
-each asset to the local cache at `<Transpoze>/models/sam3d/<variant>/`,
-matching the on-disk layout the upstream loader expects.
+each asset into `<Transpoze>/models/sam3d/<variant>/`, which is the layout
+the upstream loader expects.
 
-If the GH mirror is unreachable, the engine falls back to HuggingFace
-(legacy path; requires user to have accepted the gated-repo terms and
-configured an HF token).
+If this mirror is unreachable the engine falls back to Hugging Face —
+the legacy path, which does require the user to have accepted the gated
+terms and configured a token.
 
-## License pass-through
+## License
 
-Each weight release ships the upstream model license alongside the
-weights themselves (e.g. `LICENSE-SAM3D.txt` for SAM 3D Body). Re-use of
-the weights is governed by the upstream license.
+The weights are Meta's and they stay under the Meta SAM License. That
+license grants the right to redistribute them (§ 1a — "use, reproduce,
+distribute, copy") on the condition that the agreement travels with
+them, so every release ships the upstream license beside the weights it
+covers: `LICENSE-SAM3D.txt` for SAM 3D Body.
 
-This mirror repo itself contains only metadata and is published under
-Apache 2.0; the licenses of the mirrored weights are unchanged.
+Using the weights means accepting that license. Mirroring them here
+changes nothing about it.
