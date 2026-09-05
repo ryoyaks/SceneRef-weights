@@ -46,8 +46,3 @@ warfare use, nuclear applications, espionage, and the development or use
 of guns or illegal weapons; § 1.b.iii requires compliance with trade
 controls; and § 1.b.iv forbids reverse engineering them. Read
 `LICENSE-SAM3D.txt` in the release — the text governs, not this summary.
-
----
-
-*Named Transpoze until 2026-09-03. The product is SceneRef; the old name
-appears only in history.*
